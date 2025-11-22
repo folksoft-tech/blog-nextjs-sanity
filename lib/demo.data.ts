@@ -1,6 +1,6 @@
 // All the demo data that used as fallbacks when there's nothing in the dataset yet
 
-export const title = 'Blog.'
+export const title = 'Blog'
 
 export const description = [
   {
@@ -11,25 +11,25 @@ export const description = [
         _key: '4a58edd077880',
         _type: 'span',
         marks: [],
-        text: 'A statically generated blog example using ',
+        text: 'Welcome to the official blog of ',
       },
       {
         _key: '4a58edd077881',
         _type: 'span',
         marks: ['ec5b66c9b1e0'],
-        text: 'Next.js',
+        text: 'Folksoft',
       },
       {
         _key: '4a58edd077882',
         _type: 'span',
         marks: [],
-        text: ' and ',
+        text: '. Stay updated with our latest insights, updates, and stories from ',
       },
       {
         _key: '4a58edd077883',
         _type: 'span',
         marks: ['1f8991913ea8'],
-        text: 'Sanity',
+        text: 'www.folksoft.tech',
       },
       {
         _key: '4a58edd077884',
@@ -42,16 +42,16 @@ export const description = [
       {
         _key: 'ec5b66c9b1e0',
         _type: 'link',
-        href: 'https://nextjs.org/',
+        href: 'https://www.folksoft.tech',
       },
       {
         _key: '1f8991913ea8',
         _type: 'link',
-        href: 'https://sanity.io/',
+        href: 'https://www.folksoft.tech',
       },
     ],
     style: 'normal',
   },
 ]
 
-export const ogImageTitle = 'A Next.js Blog with a Native Authoring Experience'
+export const ogImageTitle = 'Folksoft Blog - Official Blog of Folksoft'
