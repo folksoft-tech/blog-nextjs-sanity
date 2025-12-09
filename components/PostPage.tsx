@@ -40,7 +40,7 @@ export default function PostPage(props: PostPageProps) {
           <BlogHeader title={title} level={2} />
           {preview && !post ? (
             <PostTitle>Loading…</PostTitle>
-          ) : (
+          ) : post ? (
             <>
               <article>
                 <PostHeader
@@ -54,7 +54,7 @@ export default function PostPage(props: PostPageProps) {
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
             </>
-          )}
+          ) : null}
         </Container>
       </Layout>
     </>
