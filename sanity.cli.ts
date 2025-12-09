@@ -1,3 +1,5 @@
+import path from 'path'
+
 import { loadEnvConfig } from '@next/env'
 import { defineCliConfig } from 'sanity/cli'
 
@@ -10,4 +12,16 @@ loadEnvConfig(__dirname, dev, { info: () => null, error: console.error })
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 
-export default defineCliConfig({ api: { projectId, dataset } })
+export default defineCliConfig({
+  api: { projectId, dataset },
+  vite: {
+    resolve: {
+      alias: {
+        lib: path.resolve(__dirname, './lib'),
+        plugins: path.resolve(__dirname, './plugins'),
+        schemas: path.resolve(__dirname, './schemas'),
+        components: path.resolve(__dirname, './components'),
+      },
+    },
+  },
+})

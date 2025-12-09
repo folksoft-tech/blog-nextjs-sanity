@@ -11,14 +11,14 @@ export interface PostPageHeadProps {
 }
 
 export default function PostPageHead({ settings, post }: PostPageHeadProps) {
-  const title = settings.title ?? demo.title
+  const title = settings?.title ?? demo.title
   return (
     <Head>
       <title>
-        {stegaClean(post.title ? `${post.title} | ${title}` : title)}
+        {stegaClean(post?.title ? `${post.title} | ${title}` : title)}
       </title>
       <BlogMeta />
-      {post.coverImage?.asset?._ref && (
+      {post?.coverImage?.asset?._ref && (
         <meta
           property="og:image"
           content={urlForImage(post.coverImage)

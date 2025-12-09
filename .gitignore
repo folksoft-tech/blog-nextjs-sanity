@@ -17,6 +17,8 @@
 /build
 /studio/dist
 /public/studio/static
+/dist
+/.sanity
 
 # misc
 .DS_Store
