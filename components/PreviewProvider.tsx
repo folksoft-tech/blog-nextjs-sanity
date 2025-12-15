@@ -1,4 +1,5 @@
 import { LiveQueryProvider } from '@sanity/preview-kit'
+import { studioUrl } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { useState } from 'react'
 
@@ -11,7 +12,12 @@ export default function PreviewProvider({
   perspective: string | null
   token: string
 }) {
-  const [client] = useState(() => getClient().withConfig({ stega: true }))
+  const [client] = useState(() =>
+    getClient().withConfig({
+      stega: { enabled: true, studioUrl },
+      token,
+    })
+  )
   return (
     <LiveQueryProvider
       client={client}

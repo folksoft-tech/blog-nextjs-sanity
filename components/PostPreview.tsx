@@ -3,6 +3,7 @@ import CoverImage from 'components/CoverImage'
 import Date from 'components/PostDate'
 import type { Post } from 'lib/sanity.queries'
 import Link from 'next/link'
+import { stegaClean } from 'next-sanity'
 
 export default function PostPreview({
   title,
@@ -31,7 +32,7 @@ export default function PostPreview({
         <Date dateString={date} />
       </div>
       {excerpt && (
-        <p className="mb-4 text-lg leading-relaxed text-pretty">{excerpt}</p>
+        <p className="mb-4 text-lg leading-relaxed text-pretty">{stegaClean(excerpt)}</p>
       )}
       {author && <Avatar name={author.name} picture={author.picture} />}
     </div>

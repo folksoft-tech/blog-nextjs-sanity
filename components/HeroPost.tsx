@@ -3,6 +3,7 @@ import CoverImage from 'components/CoverImage'
 import Date from 'components/PostDate'
 import type { Post } from 'lib/sanity.queries'
 import Link from 'next/link'
+import { stegaClean } from 'next-sanity'
 
 export default function HeroPost(
   props: Pick<
@@ -30,7 +31,7 @@ export default function HeroPost(
         <div>
           {excerpt && (
             <p className="mb-4 text-lg leading-relaxed text-pretty">
-              {excerpt}
+              {stegaClean(excerpt)}
             </p>
           )}
           {author && (
