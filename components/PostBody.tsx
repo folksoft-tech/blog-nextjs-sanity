@@ -17,6 +17,23 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
       return <SanityImage {...value} />
     },
   },
+  block: {
+    h2: ({ children, value }) => (
+      <h2 id={value._key} className="scroll-mt-24">
+        {children}
+      </h2>
+    ),
+    h3: ({ children, value }) => (
+      <h3 id={value._key} className="scroll-mt-24">
+        {children}
+      </h3>
+    ),
+    h4: ({ children, value }) => (
+      <h4 id={value._key} className="scroll-mt-24">
+        {children}
+      </h4>
+    ),
+  },
 }
 
 export default function PostBody({ content }) {

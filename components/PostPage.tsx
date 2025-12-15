@@ -1,3 +1,4 @@
+import { BookDemoSidebar } from 'components/BookDemoSidebar'
 import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
@@ -7,6 +8,7 @@ import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
 import PostTitle from 'components/PostTitle'
 import SectionSeparator from 'components/SectionSeparator'
+import { TableOfContents } from 'components/TableOfContents'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import Error from 'next/error'
@@ -49,7 +51,17 @@ export default function PostPage(props: PostPageProps) {
                   date={post.date}
                   author={post.author}
                 />
-                <PostBody content={post.content} />
+                <div className="lg:grid lg:grid-cols-[200px_1fr_200px] lg:gap-8 xl:gap-12">
+                  <aside className="hidden lg:block">
+                    <TableOfContents content={post.content} />
+                  </aside>
+                  <div>
+                    <PostBody content={post.content} />
+                  </div>
+                  <aside className="hidden lg:block">
+                    <BookDemoSidebar calendlyUrl="https://calendly.com/viresh-managooli-folksoft/folksoft-discovery-call" />
+                  </aside>
+                </div>
               </article>
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}

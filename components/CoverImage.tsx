@@ -20,20 +20,20 @@ export default function CoverImage(props: CoverImageProps) {
     >
       <Image
         className="h-auto w-full"
-        width={2000}
-        height={1000}
-        alt=""
-        src={urlForImage(source).height(1000).width(2000).url()}
-        sizes="100vw"
+        width={1200}
+        height={630}
+        alt={title || ''}
+        src={urlForImage(source).height(630).width(1200).url()}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         priority={priority}
       />
     </div>
   ) : (
-    <div style={{ paddingTop: '50%', backgroundColor: '#ddd' }} />
+    <div style={{ paddingTop: '52.5%', backgroundColor: '#ddd' }} />
   )
 
   return (
-    <div className="sm:mx-0">
+    <div className="max-w-5xl mx-auto">
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
           {image}

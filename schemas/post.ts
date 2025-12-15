@@ -2,6 +2,7 @@ import { BookIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
+import { MarkdownPasteInput } from '../components/MarkdownPasteInput'
 import authorType from './author'
 
 /**
@@ -66,6 +67,9 @@ export default defineType({
           ],
         },
       ],
+      components: {
+        input: MarkdownPasteInput,
+      },
     }),
     defineField({
       name: 'excerpt',
