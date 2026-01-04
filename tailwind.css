@@ -19,7 +19,7 @@
   --text-7xl: 4.5rem;
   --text-8xl: 6.25rem;
 
-  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.06);
   --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
