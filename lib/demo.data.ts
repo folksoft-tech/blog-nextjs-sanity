@@ -1,6 +1,6 @@
 // All the demo data that used as fallbacks when there's nothing in the dataset yet
 
-export const title = 'Blog.'
+export const title = 'Folksoft Blog'
 
 export const description = [
   {
@@ -11,7 +11,7 @@ export const description = [
         _key: '4a58edd077880',
         _type: 'span',
         marks: [],
-        text: 'Welcome to the official blog of ',
+        text: 'Compliance playbooks for bootstrapped to Series A SaaS founders, with deep dives on startup compliance tools, and how ',
       },
       {
         _key: '4a58edd077881',
@@ -23,29 +23,12 @@ export const description = [
         _key: '4a58edd077882',
         _type: 'span',
         marks: [],
-        text: '. Stay updated with our latest insights, updates, and stories from ',
-      },
-      {
-        _key: '4a58edd077883',
-        _type: 'span',
-        marks: ['1f8991913ea8'],
-        text: 'www.folksoft.tech',
-      },
-      {
-        _key: '4a58edd077884',
-        _type: 'span',
-        marks: [],
-        text: '.',
+        text: ' acts as your hands‑off compliance co‑founder.',
       },
     ],
     markDefs: [
       {
         _key: 'ec5b66c9b1e0',
-        _type: 'link',
-        href: 'https://www.folksoft.tech',
-      },
-      {
-        _key: '1f8991913ea8',
         _type: 'link',
         href: 'https://www.folksoft.tech',
       },
