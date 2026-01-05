@@ -36,7 +36,7 @@ export default function IndexPage(props: IndexPageProps) {
         <div className="bg-white py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Header */}
-            <div className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
                 {title}
               </h1>

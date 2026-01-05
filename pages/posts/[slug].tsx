@@ -48,10 +48,14 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     return { notFound: true }
   }
 
+  // Randomly select 2 posts from available posts at build time
+  const shuffledPosts = [...morePosts].sort(() => Math.random() - 0.5)
+  const randomMorePosts = shuffledPosts.slice(0, 2)
+
   return {
     props: {
       post,
-      morePosts,
+      morePosts: randomMorePosts,
       settings,
       previewMode,
       previewPerspective: typeof previewData === 'string' ? previewData : null,
