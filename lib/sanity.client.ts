@@ -46,8 +46,6 @@ export function getClient(preview?: {
   return client
 }
 
-export const getSanityImageConfig = () => getClient()
-
 export async function getSettings(client: SanityClient): Promise<Settings> {
   return (await client.fetch(settingsQuery)) || {}
 }

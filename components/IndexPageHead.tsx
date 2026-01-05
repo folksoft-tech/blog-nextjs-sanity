@@ -16,24 +16,72 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
   } = settings
   const ogImageTitle = ogImage?.title || demo.ogImageTitle
 
+  const siteTitle = stegaClean(title)
+  const siteDescription = toPlainText(description)
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://blog.folksoft.tech'
+
+  const ogImageUrl = `${
+    process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : baseUrl
+  }/api/og?${new URLSearchParams({ title: ogImageTitle })}`
+
+  // JSON-LD structured data for Organization
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Folksoft',
+    url: 'https://www.folksoft.tech',
+    logo: `${baseUrl}/favicon/favicon.ico`,
+    sameAs: [
+      'https://www.linkedin.com/company/folksoft',
+    ],
+  }
+
+  // JSON-LD structured data for WebSite
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteTitle,
+    url: baseUrl,
+    description: siteDescription,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Folksoft',
+    },
+  }
+
   return (
     <Head>
-      <title>{stegaClean(title)}</title>
+      <title>{siteTitle}</title>
       <BlogMeta />
-      <meta
-        key="description"
-        name="description"
-        content={toPlainText(description)}
+
+      {/* Meta description */}
+      <meta key="description" name="description" content={siteDescription} />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={baseUrl} />
+
+      {/* Open Graph tags */}
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={siteDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={baseUrl} />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:site_name" content={siteTitle} />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={siteTitle} />
+      <meta name="twitter:description" content={siteDescription} />
+      <meta name="twitter:image" content={ogImageUrl} />
+
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <meta
-        property="og:image"
-        // Because OG images must have a absolute URL, we use the
-        // `VERCEL_URL` environment variable to get the deployment’s URL.
-        // More info:
-        // https://vercel.com/docs/concepts/projects/environment-variables
-        content={`${
-          process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
-        }/api/og?${new URLSearchParams({ title: ogImageTitle })}`}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
     </Head>
   )
