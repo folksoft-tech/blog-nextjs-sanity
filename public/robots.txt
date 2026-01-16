@@ -4,4 +4,4 @@ Allow: /
 Disallow: /studio
 Disallow: /api/
 
-Sitemap: https://blog.folksoft.tech/Sitemap.xml
+Sitemap: https://blog.folksoft.tech/sitemap.xml
