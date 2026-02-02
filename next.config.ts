@@ -14,6 +14,22 @@ const config: NextConfig = {
   },
   // Note: eslint config removed - no longer supported in Next.js 16
   // Use `next lint` CLI options instead if needed
+  headers: async () => [
+    {
+      // Prevent search engines from indexing the Sanity Studio
+      source: '/studio/:path*',
+      headers: [
+        { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+      ],
+    },
+    {
+      // Prevent search engines from indexing API routes
+      source: '/api/:path*',
+      headers: [
+        { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+      ],
+    },
+  ],
 }
 
 export default config
