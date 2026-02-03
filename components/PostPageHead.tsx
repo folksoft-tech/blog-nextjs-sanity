@@ -29,7 +29,7 @@ export default function PostPageHead({ settings, post }: PostPageHeadProps) {
     description: description,
     image: ogImage,
     datePublished: post?.date,
-    dateModified: post?.date,
+    dateModified: post?._updatedAt || post?.date,
     author: {
       '@type': 'Organization',
       name: 'Folksoft',

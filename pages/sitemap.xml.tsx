@@ -36,6 +36,11 @@ const createSitemap = (locations: SitemapLocation[]) => {
                     <loc>${baseUrl}${location.url}</loc>
                     <priority>${location.priority}</priority>
                     ${
+                      location.changefreq
+                        ? `<changefreq>${location.changefreq}</changefreq>`
+                        : ''
+                    }
+                    ${
                       location.lastmod
                         ? `<lastmod>${location.lastmod.toISOString()}</lastmod>`
                         : ''
@@ -61,7 +66,8 @@ export async function getServerSideProps({ res }) {
     .map((post) => {
       return {
         url: `/posts/${post.slug}`,
-        priority: 0.5,
+        changefreq: 'weekly',
+        priority: 0.7,
         lastmod: new Date(post._updatedAt),
       }
     })
@@ -73,6 +79,7 @@ export async function getServerSideProps({ res }) {
 
   // Set response to XML
   res.setHeader('Content-Type', 'text/xml')
+  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
   res.write(createSitemap(locations))
   res.end()
 
