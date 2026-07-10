@@ -21,6 +21,8 @@ export default function PostPageHead({ settings, post }: PostPageHeadProps) {
     ? urlForImage(post.coverImage).width(1200).height(627).fit('crop').url()
     : `${baseUrl}/api/og?${new URLSearchParams({ title: stegaClean(post?.title || siteTitle) })}`
 
+  const authorName = stegaClean(post?.author?.name)
+
   // JSON-LD structured data for BlogPosting
   const blogPostingSchema = {
     '@context': 'https://schema.org',
@@ -30,17 +32,19 @@ export default function PostPageHead({ settings, post }: PostPageHeadProps) {
     image: ogImage,
     datePublished: post?.date,
     dateModified: post?._updatedAt || post?.date,
-    author: {
-      '@type': 'Organization',
-      name: 'Folksoft',
-      url: 'https://www.folksoft.tech',
-    },
+    author: authorName
+      ? { '@type': 'Person', name: authorName }
+      : {
+          '@type': 'Organization',
+          name: 'Folksoft',
+          url: 'https://www.folksoft.tech',
+        },
     publisher: {
       '@type': 'Organization',
       name: 'Folksoft',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/favicon/favicon.ico`,
+        url: 'https://www.folksoft.tech/assets/images/color_logo_text.png',
       },
     },
     mainEntityOfPage: {
@@ -92,7 +96,7 @@ export default function PostPageHead({ settings, post }: PostPageHeadProps) {
       {post?.date && (
         <meta property="article:published_time" content={post.date} />
       )}
-      <meta property="article:author" content="Folksoft" />
+      <meta property="article:author" content={authorName || 'Folksoft'} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
