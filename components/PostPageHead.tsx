@@ -44,7 +44,7 @@ export default function PostPageHead({ settings, post }: PostPageHeadProps) {
       name: 'Folksoft',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.folksoft.tech/assets/images/color_logo_text.png',
+        url: `${baseUrl}/favicon/logo.jpg`,
       },
     },
     mainEntityOfPage: {
