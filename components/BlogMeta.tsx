@@ -9,19 +9,19 @@ export default function BlogMeta() {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/logo.jpg"
+        href="/favicon/color_logo.png"
       />
       <link
         rel="icon"
-        type="image/jpeg"
+        type="image/png"
         sizes="32x32"
-        href="/favicon/logo.jpg"
+        href="/favicon/color_logo.png"
       />
       <link
         rel="icon"
-        type="image/jpeg"
+        type="image/png"
         sizes="16x16"
-        href="/favicon/logo.jpg"
+        href="/favicon/color_logo.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />

@@ -3,14 +3,14 @@
   "short_name": "Folksoft Blog",
   "icons": [
     {
-      "src": "/favicon/logo.jpg",
+      "src": "/favicon/color_logo.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "/favicon/logo.jpg",
+      "src": "/favicon/color_logo.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ],
   "theme_color": "#000000",
