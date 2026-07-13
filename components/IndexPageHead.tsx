@@ -30,7 +30,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
     '@type': 'Organization',
     name: 'Folksoft',
     url: 'https://www.folksoft.tech',
-    logo: `${baseUrl}/favicon/favicon.ico`,
+    logo: `${baseUrl}/favicon/color_text.png`,
     sameAs: [
       'https://www.linkedin.com/company/folksoft',
     ],
