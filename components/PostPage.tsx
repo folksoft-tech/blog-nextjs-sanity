@@ -1,4 +1,5 @@
 import { BookDemoSidebar } from 'components/BookDemoSidebar'
+import { CalculatorPopover } from 'components/CalculatorPopover'
 import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
@@ -63,6 +64,18 @@ export default function PostPage(props: PostPageProps) {
                   </aside>
                 </div>
               </article>
+              {/* Not in preview: the Studio's iframe is for editing the
+                  post, not for being sold a calculator. */}
+              {!preview && (
+                // Keyed on the slug so moving between posts remounts it: a new
+                // article gets a fresh offer rather than the previous post's
+                // card left on screen.
+                <CalculatorPopover
+                  key={post.slug}
+                  title={post.title}
+                  slug={post.slug}
+                />
+              )}
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
             </>
