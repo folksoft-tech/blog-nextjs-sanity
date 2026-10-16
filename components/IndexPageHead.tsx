@@ -17,6 +17,9 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
   const ogImageTitle = ogImage?.title || demo.ogImageTitle
 
   const siteTitle = stegaClean(title)
+  // Homepage-only <title>: siteTitle is also the H1, the post-page header and
+  // the " | Folksoft Blog" suffix on every post title, so it stays the brand.
+  const pageTitle = `Compliance Guides for Startups | ${siteTitle}`
   const siteDescription = toPlainText(description)
   const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://blog.folksoft.tech'
 
@@ -51,7 +54,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
 
   return (
     <Head>
-      <title>{siteTitle}</title>
+      <title>{pageTitle}</title>
       <BlogMeta />
 
       {/* Meta description */}
@@ -61,7 +64,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
       <link rel="canonical" href={baseUrl} />
 
       {/* Open Graph tags */}
-      <meta property="og:title" content={siteTitle} />
+      <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={siteDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={baseUrl} />
@@ -70,7 +73,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={siteTitle} />
+      <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={siteDescription} />
       <meta name="twitter:image" content={ogImageUrl} />
 
