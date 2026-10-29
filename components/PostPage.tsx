@@ -58,6 +58,13 @@ export default function PostPage(props: PostPageProps) {
                   </aside>
                   <div>
                     <PostBody content={post.content} />
+                    {/* Below lg the sidebar is hidden, so the same card sits
+                        at the end of the article. In the flow rather than
+                        fixed: the calculator pop-over owns the bottom edge
+                        on phones. */}
+                    <div className="mx-auto mt-12 max-w-2xl lg:hidden">
+                      <BookDemoSidebar calendlyUrl="https://calendly.com/viresh-managooli-folksoft/folksoft-discovery-call" />
+                    </div>
                   </div>
                   <aside className="hidden lg:block">
                     <BookDemoSidebar calendlyUrl="https://calendly.com/viresh-managooli-folksoft/folksoft-discovery-call" />
