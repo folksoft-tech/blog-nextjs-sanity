@@ -24,7 +24,8 @@ export default function BlogMeta() {
         href="/favicon/color_logo.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      {/* ?v=2: browsers cache favicons for a long time, and favicon.ico used to be the old red "fs" icon. */}
+      <link rel="shortcut icon" href="/favicon/favicon.ico?v=2" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />

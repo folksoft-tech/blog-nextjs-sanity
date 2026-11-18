@@ -1,5 +1,6 @@
 import IndexPageHead from 'components/IndexPageHead'
 import Layout from 'components/BlogLayout'
+import { BRAND_ICON_SRC, isRetiredAuthorPicture } from 'lib/authorPicture'
 import { urlForImage } from 'lib/sanity.image'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
@@ -94,7 +95,15 @@ export default function IndexPage(props: IndexPageProps) {
                     {/* Author */}
                     {post.author && (
                       <div className="relative mt-8 flex items-center gap-x-4 justify-self-end">
-                        {post.author.picture?.asset?._ref ? (
+                        {isRetiredAuthorPicture(post.author.picture) ? (
+                          <Image
+                            alt={post.author.name || ''}
+                            src={BRAND_ICON_SRC}
+                            width={40}
+                            height={40}
+                            className="size-10 rounded-full bg-white object-contain p-1.5 ring-1 ring-gray-200"
+                          />
+                        ) : post.author.picture?.asset?._ref ? (
                           <Image
                             alt={post.author.name || ''}
                             src={urlForImage(post.author.picture).height(80).width(80).url()}
